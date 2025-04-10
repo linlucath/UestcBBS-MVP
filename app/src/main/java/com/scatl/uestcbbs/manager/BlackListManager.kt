@@ -162,4 +162,8 @@ class BlackListManager private constructor() {
 
     fun isBlacked(uid: Int) = blackList.contains(BlackListBean().apply { this.uid = uid })
 
+    fun isInMiyuByCheckBoardId(boardId: Int) = boardId == Constant.MIYU_BOARD_ID
+
+    fun isInMiyuByCheckUserName(userName: String) = userName == Constant.MIYU_BOARD_USER_NAME
+
 }
