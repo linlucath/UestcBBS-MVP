@@ -4,8 +4,6 @@ import androidx.annotation.Nullable;
 
 import org.litepal.crud.LitePalSupport;
 
-import java.util.Objects;
-
 /**
  * author: sca_tl
  * date: 2020/11/27 18:23

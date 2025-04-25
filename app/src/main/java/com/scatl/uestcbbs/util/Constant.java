@@ -94,7 +94,6 @@ public class Constant {
 
     //密语板块id
     public static final int MIYU_BOARD_ID = 371;
-    public static final String MIYU_BOARD_USER_NAME = "匿名";
 
     //楼层
     public static final String[] FLOOR = {"沙发", "板凳", "地板", "地下"};

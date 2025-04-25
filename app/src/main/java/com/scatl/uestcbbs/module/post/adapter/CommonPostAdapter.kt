@@ -34,8 +34,7 @@ class CommonPostAdapter(layoutResId: Int, val type: String = "", onPreload: (() 
 
     fun addData(newData: List<CommonPostBean.ListBean>, reload: Boolean) {
         val filterData = newData.filter {
-            // check is in blacklist or is in miyu
-            (if (reload) true else !data.contains(it)) && !BlackListManager.INSTANCE.isBlacked(it.user_id) && !BlackListManager.INSTANCE.isInMiyuByCheckBoardId(it.board_id)
+            (if (reload) true else !data.contains(it)) && !BlackListManager.INSTANCE.isBlacked(it.user_id)
         }
         if (reload) {
             setNewData(filterData)
