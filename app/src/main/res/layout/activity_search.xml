@@ -36,11 +36,19 @@
         app:layout_constraintTop_toBottomOf="@id/app_bar">
 
         <RadioButton
+            android:id="@+id/btn_by_mix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="综合"
+            android:checked="true" />
+
+        <RadioButton
             android:id="@+id/btn_by_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="帖子"
-            android:checked="true" />
+            android:checked="true"
+            android:layout_marginStart="20dp" />
 
         <RadioButton
             android:id="@+id/btn_by_user"
