@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".module.post.view.NewPostDetailActivity"
+    android:background="?attr/colorSurface">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:title="帖子详情"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:menu="@menu/menu_new_post_detail"/>
+
+        <ProgressBar
+            android:id="@+id/read_progress"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:indeterminate="false"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_gravity="bottom"
+            android:max="10000"
+            android:progressDrawable="@drawable/shape_content_read_progress"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.scatl.widget.SmoothNestedScrollLayout
+        android:id="@+id/scroll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/head_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/warning_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/bg_warning_layout"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/warning_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_warning"
+                    app:tint="#f00"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/warning_text"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    android:alpha="0.4"/>
+
+                <TextView
+                    android:id="@+id/warning_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="该帖被警告，点击查看详情"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp"
+                    android:textColor="#f00"
+                    android:alpha="0.4"
+                    android:textSize="14dp"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/warning_icon"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/head_layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginTop="5dp"
+                app:layout_goneMarginTop="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/warning_layout">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/roundedImageStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#ffffff"
+                    android:padding="0.5dp"/>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/avatar"
+                    app:layout_constraintTop_toTopOf="@id/avatar"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintBottom_toTopOf="@id/time"
+                    tools:text="哈哈哈哈哈"
+                    android:textSize="17sp"
+                    android:includeFontPadding="false"
+                    android:layout_marginStart="6dp"/>
+
+                <TextView
+                    android:id="@+id/level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    app:layout_constraintStart_toEndOf="@id/name"
+                    app:layout_constraintTop_toTopOf="@id/name"
+                    android:textColor="#fff"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/name" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/avatar"
+                    app:layout_constraintTop_toBottomOf="@id/name"
+                    app:layout_constraintBottom_toBottomOf="@id/avatar"
+                    app:layout_constraintStart_toStartOf="@id/name"
+                    tools:text="哈哈哈哈哈"
+                    android:textSize="13sp"
+                    android:includeFontPadding="false"
+                    android:alpha="0.8"/>
+
+                <ImageView
+                    android:id="@+id/collect_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintTop_toTopOf="@id/avatar"
+                    app:layout_constraintBottom_toBottomOf="@id/avatar"
+                    app:layout_constraintEnd_toStartOf="@id/collect_num"
+                    android:src="@drawable/ic_star_outline"
+                    app:tint="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"/>
+
+                <TextView
+                    android:id="@+id/collect_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@id/avatar"
+                    app:layout_constraintBottom_toBottomOf="@id/avatar"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/avatar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"
+                    android:textIsSelectable="true"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/reward_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/reward_info_bg"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/reward_info_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/ic_gift"
+                        app:tint="@color/forum_color_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintDimensionRatio="w,1:1"
+                        android:alpha="0.1"/>
+
+                    <TextView
+                        android:id="@+id/reward_info_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:textColor="@color/forum_color_1"
+                        android:text="回帖有奖"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/reward_info_dsp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/forum_color_1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/reward_info_btn"
+                        android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/reward_info_title"/>
+
+                    <TextView
+                        android:id="@+id/reward_info_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="查看中奖记录 >"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textColor="@color/forum_color_1"
+                        android:alpha="0.7"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/action_history_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_cardview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/reward_info_layout"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    android:alpha="0.7"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/content_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/action_history_text"
+                    android:layout_marginTop="5dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                <TextView
+                    android:id="@+id/vote_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="评价"
+                    android:textColor="@color/forum_color_1"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/content_rv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="2dp"
+                    app:layout_constraintEnd_toStartOf="@id/vote_title"
+                    app:layout_constraintTop_toTopOf="@id/vote_title"
+                    app:layout_constraintBottom_toBottomOf="@id/vote_title"
+                    android:background="@drawable/shape_title_line"
+                    android:rotation="180"
+                    android:layout_marginEnd="5dp"/>
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="2dp"
+                    app:layout_constraintStart_toEndOf="@id/vote_title"
+                    app:layout_constraintTop_toTopOf="@id/vote_title"
+                    app:layout_constraintBottom_toBottomOf="@id/vote_title"
+                    android:background="@drawable/shape_title_line"
+                    android:layout_marginStart="5dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/against_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/vote_title"
+                    app:layout_constraintEnd_toStartOf="@id/vote_view"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <ImageView
+                        android:id="@+id/against_img"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_against"
+                        app:tint="@color/forum_color_2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/against_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N/A"
+                        android:textSize="12sp"
+                        android:textColor="@color/forum_color_2"
+                        app:layout_constraintTop_toBottomOf="@id/against_img"
+                        app:layout_constraintStart_toStartOf="@id/against_img"
+                        app:layout_constraintEnd_toEndOf="@id/against_img"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/support_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/against_btn"
+                    app:layout_constraintStart_toEndOf="@id/vote_view"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:id="@+id/support_img"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_support_2"
+                        app:tint="@color/forum_color_1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/support_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N/A"
+                        android:textSize="12sp"
+                        android:textColor="@color/forum_color_1"
+                        app:layout_constraintTop_toBottomOf="@id/support_img"
+                        app:layout_constraintStart_toStartOf="@id/support_img"
+                        app:layout_constraintEnd_toEndOf="@id/support_img" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.scatl.widget.VoteView
+                    android:id="@+id/vote_view"
+                    android:layout_width="0dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:gapWidth="5dp"
+                    app:cornerRadius="20dp"
+                    app:leftStartColor="@color/forum_color_2"
+                    app:leftEndColor="@color/forum_color_2"
+                    app:rightEndColor="@color/forum_color_1"
+                    app:rightStartColor="@color/forum_color_1"
+                    app:layout_constraintTop_toTopOf="@id/against_btn"
+                    app:layout_constraintBottom_toBottomOf="@id/against_btn"
+                    app:layout_constraintStart_toEndOf="@id/against_btn"
+                    app:layout_constraintEnd_toStartOf="@id/support_btn" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/dianping_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:background="@drawable/shape_cardview_r10"
+                    app:layout_constraintTop_toBottomOf="@id/against_btn">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/shape_ring"
+                        android:backgroundTint="@color/forum_color_1"
+                        app:layout_constraintTop_toTopOf="@id/dianping_txt"
+                        app:layout_constraintBottom_toBottomOf="@id/dianping_txt"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/dianping_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="点评列表"
+                        android:textColor="@color/forum_color_1"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/dianping_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/dianping_txt"
+                        android:layout_marginTop="10dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/collection_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_cardview_r10"
+                    app:layout_constraintTop_toBottomOf="@id/dianping_layout">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/shape_ring"
+                        android:backgroundTint="@color/forum_color_1"
+                        app:layout_constraintTop_toTopOf="@id/collection_list_title"
+                        app:layout_constraintBottom_toBottomOf="@id/collection_list_title"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/collection_list_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="本帖被以下淘专辑收录"
+                        android:textColor="@color/forum_color_1"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/collection_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/collection_list_title"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/stamp_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/head_layout_1"
+                android:layout_marginTop="10dp"
+                android:background="?attr/colorOnSurfaceInverse"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:background="?attr/colorSurface"
+            app:tabMode="scrollable"
+            app:tabMinWidth="0dp"
+            app:tabTextAppearance="@style/TabLayoutMain"
+            android:paddingBottom="5dp"
+            android:layout_marginStart="2dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.scatl.widget.SmoothNestedScrollLayout>
+
+    <com.lihang.ShadowLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:hl_cornerRadius="20dp"
+        app:hl_shadowColor="#2a000000"
+        app:hl_shadowLimit="7dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hl_layoutBackground="?attr/colorOnSurfaceInverse">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/comment_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingStart="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_create_1"
+                    app:tint="?attr/colorPrimary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="评论"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="10dp"
+                    android:textColor="?attr/colorPrimary" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="?attr/colorPrimary"
+                android:layout_gravity="center_vertical" />
+
+            <LinearLayout
+                android:id="@+id/dianping_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingStart="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点评"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="?attr/colorPrimary"
+                android:layout_gravity="center_vertical" />
+
+            <LinearLayout
+                android:id="@+id/buchong_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="补充"
+                    android:textColor="?attr/colorPrimary" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="?attr/colorPrimary"
+                android:layout_gravity="center_vertical" />
+
+            <LinearLayout
+                android:id="@+id/pingfen_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="评分"
+                    android:textColor="?attr/colorPrimary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.lihang.ShadowLayout>
+
+    <com.scatl.widget.StatusView
+        android:id="@+id/status_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

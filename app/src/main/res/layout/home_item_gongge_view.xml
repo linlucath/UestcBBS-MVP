@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp"
+    style="?attr/materialCardViewElevatedStyle">
+
+    <com.scatl.widget.NestedScrollableHost
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <cn.mtjsoft.www.gridviewpager_recycleview.GridViewPager
+            android:id="@+id/home_gongge_gridviewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:verticalSpacing="30dp"
+            app:img_height="24dp"
+            app:img_width="24dp"
+            app:point_margin_page="5dp"
+            app:point_margin_bottom="10dp"
+            app:point_select_color="?attr/colorPrimary"
+            app:point_normal_color="#E1E0DF"
+            app:point_height="5dp"
+            app:point_width="5dp"
+            app:background_color="#00000000"/>
+
+    </com.scatl.widget.NestedScrollableHost>
+
+</com.google.android.material.card.MaterialCardView>

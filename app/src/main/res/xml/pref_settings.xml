@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:singleLineTitle="false">
+
+    <PreferenceCategory
+        android:title="显示"
+        app:allowDividerAbove="false">
+
+        <SwitchPreference
+            android:key="@string/theme_follow_wallpaper"
+            android:title="@string/theme_follow_wallpaper_title"
+            android:summary="@string/theme_follow_wallpaper_summary"
+            android:defaultValue="true"
+            android:widgetLayout="@layout/preference_switch_widget_custom" />
+
+        <SwitchPreference
+            android:key="@string/show_imgs_at_top_list"
+            android:title="@string/show_imgs_at_top_list_title"
+            android:summary="@string/show_imgs_at_top_list_summary"
+            android:defaultValue="false"
+            app:singleLineTitle="false"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SwitchPreference
+            android:key="@string/ui_mode_follow_system"
+            android:title="@string/ui_mode_follow_system_title"
+            android:summary="@string/ui_mode_follow_system_summary"
+            android:defaultValue="false"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SwitchPreference
+            android:key="@string/show_home_banner"
+            android:title="@string/show_home_banner_title"
+            android:summary="@string/show_home_banner_summary"
+            android:defaultValue="true"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SwitchPreference
+            android:key="@string/close_all_site_top_stick_post"
+            android:title="@string/close_all_site_top_stick_post_title"
+            android:summary="@string/close_all_site_top_stick_post_summary"
+            android:defaultValue="false"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SeekBarPreference
+            android:defaultValue="5"
+            android:max="15"
+            app:min="5"
+            app:showSeekBarValue="true"
+            android:key="@string/hot_comment_zan_threshold"
+            android:title="@string/hot_comment_zan_threshold_title"
+            android:summary="@string/hot_comment_zan_threshold_summary"/>
+
+        <SeekBarPreference
+            android:defaultValue="3"
+            android:max="5"
+            app:min="1"
+            app:showSeekBarValue="true"
+            android:key="@string/board_list_columns"
+            android:title="@string/board_list_columns_title"
+            android:summary="@string/board_list_columns_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="功能"
+        app:allowDividerAbove="false">
+
+        <SwitchPreference
+            android:key="@string/clear_draft_after_post_success"
+            android:title="@string/clear_draft_after_post_success_title"
+            android:summary="@string/clear_draft_after_post_success_summary"
+            android:defaultValue="true"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SwitchPreference
+            android:key="@string/answer_day_question_background"
+            android:title="@string/answer_day_question_background_title"
+            android:summary="@string/answer_day_question_background_summary"
+            android:defaultValue="true"
+            android:enabled="false"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SwitchPreference
+            android:key="@string/open_link_by_internal_browser"
+            android:title="@string/open_link_by_internal_browser_title"
+            android:summary="@string/open_link_by_internal_browser_summary"
+            android:defaultValue="false"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SwitchPreference
+            android:key="@string/ignore_ssl_verifier"
+            android:title="@string/ignore_ssl_verifier_title"
+            android:defaultValue="false"
+            android:widgetLayout="@layout/preference_switch_widget_custom" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="通知与提醒"
+        app:allowDividerAbove="false">
+
+        <SwitchPreference
+            android:key="@string/collection_update_notification"
+            android:title="@string/collection_update_notification_title"
+            android:summary="@string/collection_update_notification_summary"
+            android:defaultValue="false"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="浏览"
+        app:allowDividerAbove="false">
+
+        <SwitchPreference
+            android:key="@string/auto_load_more"
+            android:title="@string/auto_load_more_title"
+            android:summary="@string/auto_load_more_summary"
+            android:defaultValue="true"
+            android:widgetLayout="@layout/preference_switch_widget_custom"/>
+
+        <SeekBarPreference
+            android:defaultValue="25"
+            android:max="50"
+            app:min="5"
+            app:showSeekBarValue="true"
+            android:key="@string/page_size"
+            android:title="@string/page_size_title"
+            android:summary="@string/page_size_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="权限"
+        app:allowDividerAbove="false">
+
+        <Preference
+            android:key="@string/release_saf_access"
+            android:title="@string/release_saf_access_title"
+            android:summary="@string/release_saf_access_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="其它"
+        app:allowDividerAbove="false">
+
+        <Preference
+            android:key="@string/app_update"
+            android:title="@string/app_update_title"
+            app:summary="@string/app_update_summary"/>
+
+        <Preference
+            android:key="@string/clear_cache"
+            android:title="@string/clear_cache_title"
+            app:summary="@string/clear_cache_summary"/>
+
+        <Preference
+            android:key="@string/app_about"
+            android:title="@string/app_about_title"
+            app:summary="@string/app_about_summary"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

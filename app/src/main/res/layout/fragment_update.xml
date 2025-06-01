@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/dialog_update_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="?attr/colorPrimary"
+        android:layout_margin="20dp"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/update_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:minHeight="150dp"
+        android:layout_below="@id/dialog_update_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dialog_update_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.2"
+                android:textSize="15sp"
+                android:textIsSelectable="true"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dialog_update_img_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+            <RelativeLayout
+                android:id="@+id/update_bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp">
+
+                <CheckBox
+                    android:id="@+id/dialog_update_ignore_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="忽略该版本更新（您可在设置页面手动更新）"
+                    android:layout_marginTop="5dp" />
+
+                <ProgressBar
+                    android:id="@+id/dialog_update_progressbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_below="@id/dialog_update_ignore_update"
+                    android:layout_marginTop="5dp"
+                    android:indeterminate="false"
+                    android:visibility="gone"
+                    android:progressDrawable="@drawable/shape_progressbar"
+                    style="?android:attr/progressBarStyleHorizontal" />
+
+                <TextView
+                    android:id="@+id/dialog_update_progress_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dialog_update_progressbar"
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dialog_update_progress_text"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_centerHorizontal="true">
+
+                    <Button
+                        android:id="@+id/dialog_update_online_download_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="在线更新（速度慢）"
+                        android:textSize="12sp"
+                        style="@style/Widget.Material3.Button.OutlinedButton" />
+
+                    <Button
+                        android:id="@+id/dialog_update_web_download_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="网页下载（推荐）"
+                        android:textSize="12sp"
+                        android:textColor="#fff"
+                        android:layout_marginStart="20dp"
+                        style="@style/Widget.Material3.Button.UnelevatedButton" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

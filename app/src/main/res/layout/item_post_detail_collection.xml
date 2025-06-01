@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:id="@+id/item_post_detail_collection_layout">
+
+    <com.scatl.uestcbbs.widget.textview.MarqueeTextView
+        android:id="@+id/item_post_detail_collection_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="15sp"/>
+
+    <com.scatl.uestcbbs.widget.textview.MarqueeTextView
+        android:id="@+id/item_post_detail_collection_subscribe_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
